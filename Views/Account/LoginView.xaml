@@ -3,52 +3,96 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LiquiCycle_FuncionarioPosto.Views.Account.LoginView"
              Title="LoginView">
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <!--  Primeira linha que ocupa 30% do espaço  -->
+            <RowDefinition Height="6*" />
+            <!--  Segunda linha que ocupa o espaço restante (70%)  -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <!--  Primeira coluna com largura automática  -->
+        </Grid.ColumnDefinitions>
 
-            <Image
-                Source="logo.png"
-                SemanticProperties.Description="net.maui surfing!"
-                HeightRequest="150"
-                WidthRequest="150"
-                HorizontalOptions="Center" />
+
+        <BoxView Grid.Row="0" BackgroundColor="#414955" />
+
+        <!--  Conteúdo da segunda linha  -->
+        <ScrollView
+            Grid.Row="1"
+            Padding="20"
+            BackgroundColor="White"
+            VerticalOptions="FillAndExpand">
 
             <VerticalStackLayout>
-                <Label Text="Bem-Vindo" FontSize="28" TextColor="Gray" HorizontalTextAlignment="Center" />
-                <Label Text="Fazer Login na sua conta" FontSize="20" TextColor="Gray" HorizontalTextAlignment="Center" />
+
+                <Label
+                    Margin="40"
+                    FontAttributes="Bold"
+                    FontSize="24"
+                    HorizontalOptions="Center"
+                    Text="Bem Vindo!"
+                    VerticalOptions="Center" />
+
+                <Label
+                    FontSize="20"
+                    HorizontalOptions="Start"
+                    Text="Entre na sua conta" />
+                <Border Margin="0,15,0,0">
+                    <Entry
+                        x:Name="EntryLogin"
+                        Margin="15,0,15,0"
+                        HeightRequest="70"
+                        Keyboard="Text"
+                        Placeholder="Login"
+                        TextColor="Black" />
+                </Border>
+
+                <Border Margin="0,10,0,0">
+                    <Entry
+                        x:Name="EntrySenha"
+                        Margin="15,0,15,0"
+                        HeightRequest="70"
+                        IsPassword="True"
+                        Placeholder="Senha"
+                        TextColor="Black" />
+                </Border>
+
+                <Button
+                    BackgroundColor="Transparent"
+                    Clicked="NavigationForgotPassword"
+                    FontSize="16"
+                    HorizontalOptions="End"
+                    Text="Esqueceu a senha?"
+                    TextColor="Black" />
+
+                <Button
+                    Margin="10,30"
+                    Padding="20"
+                    BackgroundColor="#0B6EFE"
+                    Clicked="LoginPost"
+                    FontAttributes="Bold"
+                    FontSize="24"
+                    Text="Login" />
+
+                <Label
+                    FontSize="16"
+                    HorizontalOptions="Center"
+                    TextColor="Black">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Não tem uma conta? " />
+                            <Span FontAttributes="Bold" Text="Cadastre-se" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="NavigationCreateUser" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+
             </VerticalStackLayout>
-
-            <StackLayout Orientation="Horizontal">
-                <Frame ZIndex="1" HasShadow="True" BorderColor="White" HeightRequest="55" WidthRequest="55" CornerRadius="25">
-                    <Image Source="user1.png" HeightRequest="20" WidthRequest="20"/>
-                </Frame>
-                <Frame HasShadow="True" Padding="0" BorderColor="White" HeightRequest="45" HorizontalOptions="FillAndExpand">
-                    <Entry Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Usuário"  Keyboard="Email"/>
-                </Frame>
-            </StackLayout>
-
-            <StackLayout Orientation="Horizontal">
-                <Frame ZIndex="1" HasShadow="True" BorderColor="White" HeightRequest="55" WidthRequest="55" CornerRadius="25">
-                    <Image Source="lock.jpg" HeightRequest="20" WidthRequest="20"/>
-                </Frame>
-                <Frame HasShadow="True" Padding="0" BorderColor="White" HeightRequest="45" HorizontalOptions="FillAndExpand">
-                    <Entry Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Senha" IsPassword="True"/>
-                </Frame>
-            </StackLayout>
-
-            <Button Text="Login" WidthRequest="120" CornerRadius="25" HorizontalOptions="Center" BackgroundColor="BlueViolet" />
-            <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
-                <Label Text="Não tem conta ?" TextColor="Gray"/>
-                <Label Text="Criar conta" TextColor="Gray"/>
-            </StackLayout>
-
-            <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
-                <Label Text="Esqueci a senha" TextColor="Gray"/>
-            </StackLayout>
-
-        </VerticalStackLayout>
-    </ScrollView>
+        </ScrollView>
+    </Grid>
 </ContentPage>
