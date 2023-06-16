@@ -1,4 +1,10 @@
-﻿namespace LiquiCycle_FuncionarioPosto;
+﻿using LiquiCycle_FuncionarioPosto.Views.Account;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;
+using Application = Microsoft.Maui.Controls.Application;
+
+namespace LiquiCycle_FuncionarioPosto;
 
 public partial class App : Application
 {
@@ -6,6 +12,6 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new AppShell();
-	}
+        MainPage = new NavigationPage(new LoginView());
+    }
 }

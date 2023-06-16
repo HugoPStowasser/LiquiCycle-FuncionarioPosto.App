@@ -9,7 +9,7 @@ public partial class LoginView : ContentPage
     }
     private void LoginPost(object sender, EventArgs e)
     {
-        Application.Current.MainPage = new NavigationPage(new AppView());
+        //Application.Current.MainPage = new NavigationPage(new AppView());
     }
 
     private void NavigationForgotPassword(object sender, EventArgs e)
