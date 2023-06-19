@@ -9,6 +9,11 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="ContentPage" x:Key="NoTitleBarPageStyle">
+                <Setter Property="NavigationPage.HasNavigationBar" Value="False" />
+                <Setter Property="NavigationPage.HasBackButton" Value="False" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

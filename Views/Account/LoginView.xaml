@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LiquiCycle_FuncionarioPosto.Views.Account.LoginView"
-             Title="LoginView">
+             Title=""
+             Style="{StaticResource NoTitleBarPageStyle}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*" />
@@ -16,7 +17,13 @@
         </Grid.ColumnDefinitions>
 
 
-        <BoxView Grid.Row="0" BackgroundColor="#414955" />
+        <Grid Grid.Row="0">
+            <Image
+            HorizontalOptions="Center"
+            Source="colaborator_logo.png" 
+            TranslationY="10"
+            Margin="0,20,0,0" />
+        </Grid>
 
         <!--  Conteúdo da segunda linha  -->
         <ScrollView
@@ -71,10 +78,10 @@
                     Margin="10,30"
                     Padding="20"
                     BackgroundColor="#FF007A"
+                    TextColor="White"
                     Clicked="LoginPost"
                     FontAttributes="Bold"
                     FontSize="24"
-                    TextColor="White"
                     Text="Login" />
 
                 <Label

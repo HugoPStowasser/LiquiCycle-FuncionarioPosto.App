@@ -49,6 +49,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\arrowreturn.svg" />
+	  <None Remove="Resources\Images\colaborator_logo.png" />
 	  <None Remove="Resources\Images\lock1.jpg" />
 	  <None Remove="Resources\Images\logo.png" />
 	  <None Remove="Resources\Images\user1.jpg" />
@@ -77,6 +79,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Account\LoginView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\App\AppView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

@@ -54,31 +54,31 @@
                 Margin="0,20,0,0"
                 FontSize="15"
                 HorizontalOptions="Start"
-                Text="CPF ou CNPJ *" />
+                Text="CPF" />
             <Border Margin="0,15,0,0">
                 <Entry
-                    x:Name="EntryCPFCNPJ"
+                    x:Name="EntryCPF"
                     Margin="10,0,10,0"
                     HeightRequest="45"
                     Keyboard="Text"
-                    Placeholder="Digite CPF ou CNPJ"
+                    Placeholder="Digite CPF"
                     TextColor="Black" />
             </Border>
             <Label
                 Margin="0,20,0,0"
                 FontSize="15"
                 HorizontalOptions="Start"
-                Text="Forna que será usado para fazer Login" />
+                Text="Forma que será usado para fazer Login" />
 
             <Grid ColumnDefinitions="*,*">
                 <RadioButton
-                    x:Name="RadioCPFCNPJ"
+                    x:Name="RadioCPF"
                     Content=" Email"
                     IsChecked="True" />
                 <RadioButton
                     x:Name="RadioEmail"
                     Grid.Column="1"
-                    Content=" CPF ou CNPJ"
+                    Content=" CPF"
                     HorizontalOptions="End" />
             </Grid>
             <Label
@@ -186,10 +186,27 @@
                     TextColor="Black" />
             </Border>
 
+            <Label
+                Margin="0,20,0,0"
+                FontSize="15"
+                HorizontalOptions="Start"
+                Text="Posto que vai trabalhar" />
+
+
+            <Border Margin="0,15,0,0">
+                <Picker x:Name="PostoPicker"
+                Margin="10,0,10,0"
+                Title="Selecione o posto"
+                HeightRequest="45"
+                TextColor="Black" />
+            </Border>
+            
+
             <Button
                 Margin="10,30"
                 Padding="20"
-                BackgroundColor="#0B6EFE"
+                BackgroundColor="#FF007A"
+                TextColor="White"
                 Clicked="CreateUser"
                 FontAttributes="Bold"
                 FontSize="24"

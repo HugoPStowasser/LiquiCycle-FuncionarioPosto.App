@@ -5,7 +5,6 @@ public partial class LoginView : ContentPage
     public LoginView()
     {
         InitializeComponent();
-
     }
     private void LoginPost(object sender, EventArgs e)
     {
