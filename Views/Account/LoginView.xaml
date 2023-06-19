@@ -80,7 +80,7 @@
         IsPassword="True"
         Placeholder="Senha"
         TextColor="Black" />
-
+<!--adicionando um comentario teste-->
                     <Image
         Source="vector.png"
         WidthRequest="60"
