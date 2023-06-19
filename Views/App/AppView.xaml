@@ -8,7 +8,7 @@
         <Tab Title="Agendamentos" Icon="agendamentos.svg">
             <ShellContent ContentTemplate="{DataTemplate views:AgendamentosView}" />
         </Tab>
-        <Tab Title="Usinas" Icon="profile.png">
+        <Tab Title="Usinas" Icon="usinalogo.png">
             <ShellContent ContentTemplate="{DataTemplate views:UsinasView}" />
         </Tab>
         <Tab Title="Perfil" Icon="profile.png">
