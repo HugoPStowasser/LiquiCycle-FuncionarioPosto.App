@@ -5,5 +5,6 @@ public partial class AppView : Shell
 	public AppView()
 	{
 		InitializeComponent();
-	}
+        SetNavBarIsVisible(this, false);
+    }
 }
