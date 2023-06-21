@@ -3,6 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LiquiCycle_FuncionarioPosto.Views.Account.CreateUserView"
              Title="CreateUserView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Border">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="Padding" Value="1" />
+                <Setter Property="StrokeShape" Value="RoundRectangle 5,5,5,5" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ScrollView
         Padding="20"
         BackgroundColor="White"
