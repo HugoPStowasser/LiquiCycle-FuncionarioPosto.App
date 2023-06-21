@@ -49,6 +49,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Views\Account\PasswordToEmailView.xaml.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Remove="Views\Account\PasswordToEmailView.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Resources\Images\arrowreturn.svg" />
 	  <None Remove="Resources\Images\colaborator_logo.png" />
 	  <None Remove="Resources\Images\lock1.jpg" />
