@@ -4,10 +4,77 @@
              x:Class="LiquiCycle_FuncionarioPosto.Views.App.ProfileView"
              Title="ProfileView"
              NavigationPage.HasNavigationBar="False">
-    <VerticalStackLayout>
-        <Label 
-            Text="Perfil"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Border
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Padding="10,10,10,10"
+                    BackgroundColor="#ECECEC">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="Large"
+                        HorizontalOptions="Center"
+                        Text="Meu Perfil"
+                        TextColor="Black"
+                        VerticalOptions="Center" />
+                </Border>
+                <VerticalStackLayout
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    HorizontalOptions="Center">
+                    <Image
+                        Margin="0,70,0,0"
+                        HeightRequest="100"
+                        HorizontalOptions="Center"
+                        Source="usercircle.png"
+                        WidthRequest="100" />
+                    <Border
+                        Margin="0,20,0,0"
+                        Padding="5,5,5,5"
+                        BackgroundColor="#F0F0F0"
+                        StrokeShape="RoundRectangle 18,18,18,18">
+                        <Label
+                            x:Name="lblNome"
+                            FontAttributes="Bold"
+                            FontSize="22"
+                            HorizontalOptions="Center"
+                            TextColor="Black"
+                            VerticalOptions="Center" />
+                    </Border>
+                    <Button
+                        Margin="0,30,0,0"
+                        BackgroundColor="Transparent"
+                        FontSize="22"
+                        HorizontalOptions="Center"
+                        Text="Editar perfil"
+                        TextColor="Black" />
+                    <Button
+                        Margin="0,30,0,0"
+                        BackgroundColor="Transparent"
+                        FontSize="22"
+                        HorizontalOptions="Center"
+                        Text="Redefinir senha"
+                        TextColor="Black" />
+                    <Button
+                        Margin="0,30,0,0"
+                        BackgroundColor="Transparent"
+                        FontSize="22"
+                        HorizontalOptions="Center"
+                        Text="Sair da conta"
+                        TextColor="#FF007A" />
+
+                </VerticalStackLayout>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

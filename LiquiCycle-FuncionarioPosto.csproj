@@ -62,6 +62,7 @@
 	  <None Remove="Resources\Images\lock1.jpg" />
 	  <None Remove="Resources\Images\logo.png" />
 	  <None Remove="Resources\Images\user1.jpg" />
+	  <None Remove="Resources\Images\usercircle.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
