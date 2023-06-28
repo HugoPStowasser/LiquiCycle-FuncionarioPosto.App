@@ -12,7 +12,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>LiquiCycle-FuncionarioPosto</ApplicationTitle>
+		<ApplicationTitle>LiquiCycle</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.liquicycle_funcionarioposto</ApplicationId>
