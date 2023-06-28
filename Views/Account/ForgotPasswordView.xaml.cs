@@ -68,7 +68,7 @@ public partial class ForgotPasswordView : ContentPage, INotifyPropertyChanged
          }
         }
     }
-    public event PropertyChangedEventHandler PropertyChanged;
+    public new event PropertyChangedEventHandler PropertyChanged;
 
     protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
     {

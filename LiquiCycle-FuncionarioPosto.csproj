@@ -70,7 +70,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Dtos\" />
 	  <Folder Include="Requests\" />
 	</ItemGroup>
 
@@ -96,7 +95,13 @@
 	  <MauiXaml Update="Views\App\AppView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\App\ProfileView.xaml">
+	  <MauiXaml Update="Views\App\Profile\EditProfile.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\App\Profile\ProfileView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\App\Profile\ResetPassword.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\App\UsinasView.xaml">
