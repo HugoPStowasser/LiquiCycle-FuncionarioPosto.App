@@ -75,8 +75,6 @@ public partial class ForgotPasswordView : ContentPage, INotifyPropertyChanged
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
-    
-
     private bool IsValidEmail(string email)
     {
         return Regex.IsMatch(email, @"^[^\s@]+@[^\s@]+\.[^\s@]+$");
