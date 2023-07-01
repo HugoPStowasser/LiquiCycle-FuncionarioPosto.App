@@ -1,4 +1,6 @@
 using LiquiCycle_FuncionarioPosto.Dtos;
+using LiquiCycle_FuncionarioPosto.Services;
+using System.Text.Json;
 
 namespace LiquiCycle_FuncionarioPosto.Views.App.Profile;
 
@@ -21,8 +23,17 @@ public partial class ResetPassword : ContentPage
         Navigation.PopModalAsync();
     }
 
-    private void SendEmail(object sender, TappedEventArgs e)
+    private async void SendEmail(object sender, TappedEventArgs e)
     {
-
+        string jsonString = Preferences.Get("usuarioLogado", string.Empty);
+        var _adm = JsonSerializer.Deserialize<FuncionarioPostoDto>(jsonString);
+        await SendEmailAsync(_adm.Usuario.Email);
     }
+
+    private async Task SendEmailAsync(string email)
+    {
+        var apiService = new ApiService();
+        await apiService.PostAsync<string, object>("manter-conta/email?email=" + email, null);
+    }
+
 }
