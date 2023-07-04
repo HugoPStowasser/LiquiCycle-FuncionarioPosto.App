@@ -73,7 +73,7 @@
                         FontSize="22"
                         HorizontalOptions="Center"
                         Text="Sair da conta"
-                        TextColor="#FF007A" />
+                        TextColor="Blue" />
 
                 </VerticalStackLayout>
             </Grid>

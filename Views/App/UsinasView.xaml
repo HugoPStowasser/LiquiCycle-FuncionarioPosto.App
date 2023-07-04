@@ -5,9 +5,107 @@
              Title="UsinasView"
              NavigationPage.HasNavigationBar="False">
     <VerticalStackLayout>
-        <Label 
-            Text="Usinas"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+
+                <ColumnDefinition Width="Auto" />
+
+            </Grid.ColumnDefinitions>
+            <Image Source="iconagendamentos.png" WidthRequest="24" HeightRequest="24"  Margin="20,0,0,0"/>
+
+            <Label Text="Agendamentos" Grid.Column="1" VerticalOptions="Center" Margin="20,0,0,0"/>
+
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+
+                <ColumnDefinition Width="*" />
+
+            </Grid.ColumnDefinitions>
+            
+            
+            <StackLayout  Grid.Column="0" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ImageButton  Source="plus.png"  />
+                <Label Text="Criar agendamentos" VerticalOptions="Center"  TextColor="#8F00FF" FontSize="16" />
+            </StackLayout>
+
+
+
+            <Label Grid.Column="1" Text="Limpar tudo" TextColor="#DA7676" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="limpaTudo" />
+                </Label.GestureRecognizers>
+            </Label>
+
+        </Grid>
+        
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border Margin="0,15,0,0 ">
+                <Picker Grid.Column="0" SelectedIndexChanged="PickerSelectedIndexChanged"   HorizontalOptions="FillAndExpand"            
+        HeightRequest="40" Margin="20,20" >
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Todos</x:String>
+                            <x:String>Aprovados</x:String>
+                            <x:String>Recusados</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                    <Picker.SelectedItem>
+                        <x:String>Todos</x:String>
+                    </Picker.SelectedItem>
+                </Picker>
+
+            </Border>
+        </Grid>
+        <ListView 
+            x:Name="listUsinas"
+            ItemsSource="{Binding getUsinas}" BackgroundColor="#3F8D32"
+            Margin="20,0,20,0">
+
+            <ListView.ItemTemplate >
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+
+                                <ColumnDefinition Width="*" />
+
+                                <ColumnDefinition Width="*" />
+
+
+
+                            </Grid.ColumnDefinitions>
+                            <Label  Grid.Column="0" Text="{Binding nome}" TextColor="White"/>
+
+                            
+
+                                <Label  Grid.Column="1" Text="{Binding codigo}" TextColor="White"/>
+                                
+                            
+
+
+                        </Grid>
+
+                    </ViewCell>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+
+
+        </ListView>
+
+        <Label Text="Dia   /  /    às   :  " Margin="20,0,0,15"></Label>
+
+        
+
     </VerticalStackLayout>
 </ContentPage>

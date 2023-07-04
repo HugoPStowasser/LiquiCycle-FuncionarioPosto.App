@@ -23,6 +23,8 @@
                 <Setter Property="Shell.TabBarUnselectedColor"
                     Value="#5F5F5F" />
             </Style>
+            
+          
         </ResourceDictionary>
     </Application.Resources>
 </Application>
