@@ -5,7 +5,7 @@
              xmlns:views="clr-namespace:LiquiCycle_FuncionarioPosto.Views.App">
     
     <TabBar>
-        <Tab Title="Agendamentos" Icon="agendamentos.svg">
+        <Tab Title="Agendamentos" Icon="agendamentos.png">
             <ShellContent ContentTemplate="{DataTemplate views:AgendamentosView}" />
         </Tab>
         <Tab Title="Usinas" Icon="usinalogo.png">
