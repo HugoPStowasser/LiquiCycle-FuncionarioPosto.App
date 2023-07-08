@@ -21,7 +21,6 @@ public partial class UsinasView : ContentPage
         var picker = (Picker)sender;
         var selectedOption = (string)picker.SelectedItem;
 
-
         Console.WriteLine($"Opção selecionada: {selectedOption}");
     }
 
@@ -31,9 +30,6 @@ public partial class UsinasView : ContentPage
     {
         public string nome { get; set; }
         public string codigo { get; set; }
-
-
     }
-
 
 }

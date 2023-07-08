@@ -14,7 +14,7 @@
                 <Setter Property="NavigationPage.HasNavigationBar" Value="False" />
                 <Setter Property="NavigationPage.HasBackButton" Value="False" />
             </Style>
-            
+
             <Style TargetType="TabBar">
                 <Setter Property="Shell.TabBarBackgroundColor"
                     Value="#ECECEC" />
@@ -23,8 +23,6 @@
                 <Setter Property="Shell.TabBarUnselectedColor"
                     Value="#5F5F5F" />
             </Style>
-            
-          
         </ResourceDictionary>
     </Application.Resources>
 </Application>
