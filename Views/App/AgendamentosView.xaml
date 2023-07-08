@@ -114,8 +114,8 @@
 
 
             </Grid.ColumnDefinitions>
-            <Button  Grid.Column="0" Text="Aprovar" />
-            <Button  Grid.Column="1" Text="Recusar" />
+            <Button  Grid.Column="0" Text="Aprovar" Margin="0,0,5,0" />
+            <Button  Grid.Column="1" Text="Recusar" Margin="0,0,5,0" />
         </Grid>
 
     </VerticalStackLayout>
