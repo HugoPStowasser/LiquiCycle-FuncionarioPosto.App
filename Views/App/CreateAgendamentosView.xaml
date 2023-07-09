@@ -1,32 +1,76 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LiquiCycle_FuncionarioPosto.Views.App.AgendamentosView"
-             Title="AgendamentosView"
+             x:Class="LiquiCycle_FuncionarioPosto.Views.App.CreateAgendamentosView"
+             Title="CreateAgendamentosView"
              NavigationPage.HasNavigationBar="False">
     <VerticalStackLayout>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0"    
+                   Margin="20,50,0,0"
+            HorizontalOptions="Start"
+            Source="arrowreturn.png">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Return" />
+                </Image.GestureRecognizers>
+            </Image>
+
+        </Grid>
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
-                
+
+                <ColumnDefinition Width="Auto" />
+
             </Grid.ColumnDefinitions>
             <Image Source="iconagendamentos.png" WidthRequest="24" HeightRequest="24"  Margin="20,20,0,0"/>
-           
+
             <Label Text="Agendamentos" Grid.Column="1" VerticalOptions="Center" FontSize="24" Margin="20,20,0,0"/>
-            
+
         </Grid>
+
         <Grid>
-   
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+
+                <ColumnDefinition Width="*" />
+
+            </Grid.ColumnDefinitions>
+            
+            
+            <StackLayout  Grid.Column="0" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ImageButton  Source="plus.png"  />
+                <Label Text="Criar agendamentos" VerticalOptions="Center"  TextColor="#8F00FF" FontSize="16" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="criaAgendamento" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+
+
+
+            <Label Grid.Column="1" Text="Limpar tudo" TextColor="#DA7676" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="limpaTudo" />
+                </Label.GestureRecognizers>
+            </Label>
+
+        </Grid>
+        
+        <Grid>
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            
+            <Border Margin="0,15,0,0 ">
                 <Picker Grid.Column="0" SelectedIndexChanged="PickerSelectedIndexChanged"   HorizontalOptions="FillAndExpand"            
         HeightRequest="40" Margin="20,20" >
-                
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Todos</x:String>
@@ -34,27 +78,16 @@
                             <x:String>Recusados</x:String>
                         </x:Array>
                     </Picker.ItemsSource>
-                
-                <Picker.SelectedItem>
+                    <Picker.SelectedItem>
                         <x:String>Todos</x:String>
                     </Picker.SelectedItem>
                 </Picker>
-            
 
+            </Border>
         </Grid>
-
-       
-        <StackLayout Orientation="Horizontal" Margin="20" HorizontalOptions="FillAndExpand"  >
-          <Image Source="iconsearch.png" WidthRequest="20" HeightRequest="20" />
-            
-                <Entry Placeholder="Digite algo"  />
-           
-        </StackLayout>
-        
-
         <ListView 
-            x:Name="listAgendamentos"
-            ItemsSource="{Binding getAgendamentos}" BackgroundColor="#414955"
+            x:Name="listUsinas"
+            ItemsSource="{Binding getUsinas}" BackgroundColor="#3F8D32"
             Margin="20,0,20,0">
 
             <ListView.ItemTemplate >
@@ -62,51 +95,37 @@
                     <ViewCell>
                         <Grid>
                             <Grid.ColumnDefinitions>
+
                                 <ColumnDefinition Width="*" />
+
                                 <ColumnDefinition Width="*" />
+
+
+
                             </Grid.ColumnDefinitions>
-                            
                             <Label  Grid.Column="0" Text="{Binding nome}" TextColor="White"/>
 
-                            <Grid Grid.Column="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Label  Grid.Column="0" Text="{Binding liquido}" TextColor="White"/>
-                                <Label  Grid.Column="1" Text="{Binding litros}" TextColor="White"/>
-                            </Grid>
+                            
+
+                                <Label  Grid.Column="1" Text="{Binding codigo}" TextColor="White"/>
+                                
+                            
+
+
                         </Grid>
-                        
+
                     </ViewCell>
-                    
+
                 </DataTemplate>
             </ListView.ItemTemplate>
 
-            
+
 
         </ListView>
 
-        <Label Text="Requisitado no dia   /  /     às   :   " Margin="20,0,0,15"></Label>
+        <Label Text="Dia   /  /    às   :  " Margin="20,0,0,15"></Label>
 
-        <Grid Margin="20,0,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Button  Grid.Column="0" Text="Aprovar" Margin="0,0,5,0" />
-            <Button  Grid.Column="1" Text="Recusar" Margin="0,0,5,0" />
-        </Grid>
         
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            
-            <Button Grid.Column="0"  Text="Criar Agendamento" Clicked="NavigationCreateAgendamento"></Button>
-        </Grid>
 
     </VerticalStackLayout>
 </ContentPage>

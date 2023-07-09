@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LiquiCycle_FuncionarioPosto.Views.App.EnviarUsina"
+             Title="EnviarUsina"
+             NavigationPage.HasNavigationBar="False">
+    <VerticalStackLayout>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0"    
+                   Margin="10,10,0,0"
+            HorizontalOptions="Start"
+            Source="arrowreturn.png">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Return" />
+                </Image.GestureRecognizers>
+            </Image>
+
+        </Grid>
+        <Grid Margin="20,20,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+
+            </Grid.ColumnDefinitions>
+            <Label Text="Enviar para usina" FontSize="24" HorizontalOptions="Center"/>
+        </Grid>
+        <Grid Margin="20,20,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+
+            </Grid.ColumnDefinitions>
+            
+                <Picker Grid.Column="0" SelectedIndexChanged="PickerSelectedIndexChanged"   HorizontalOptions="CenterAndExpand"            
+        HeightRequest="40" Margin="20,20" >
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                        <x:String>Selecione a Usina</x:String>
+                            <x:String>Aprovados</x:String>
+                            <x:String>Recusados</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                    <Picker.SelectedItem>
+                        <x:String>Selecione a Usina</x:String>
+                    </Picker.SelectedItem>
+                </Picker>
+
+            
+        </Grid>
+
+        <Grid Margin="20,20,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+
+            </Grid.ColumnDefinitions>
+            <Label Text="Líquidos para envio" FontSize="18" HorizontalOptions="Start"/>
+        </Grid>
+
+        <Grid Margin="5,20,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+
+            </Grid.ColumnDefinitions>
+            <StackLayout  Grid.Column="0" Orientation="Horizontal" HorizontalOptions="Start" >
+                <ImageButton  Source="blueplus.png"  />
+                <Label Grid.Column="1" Text="Selecionar Líquidos" TextColor="#0B6EFE" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="selecionaliquido" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </Grid>
+        <Grid Margin="20,50,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+
+            </Grid.ColumnDefinitions>
+            <Label Text="Data e Hora" FontSize="18" HorizontalOptions="Start"/>
+        </Grid>
+        <Grid Margin="20,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+
+            </Grid.ColumnDefinitions>
+            
+                <Picker Grid.Column="0" SelectedIndexChanged="PickerSelectedIndexChanged"   HorizontalOptions="FillAndExpand"            
+        HeightRequest="40" Margin="0,0,0,0" >
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                        <x:String>04 de Junho</x:String>
+                            <x:String>Aprovados</x:String>
+                            <x:String>Recusados</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                    <Picker.SelectedItem>
+                        <x:String>04 de Junho</x:String>
+                    </Picker.SelectedItem>
+                </Picker>
+
+            
+        </Grid>
+        <Grid Margin="20,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+
+            </Grid.ColumnDefinitions>
+            
+                <Picker Grid.Column="0" SelectedIndexChanged="PickerSelectedIndexChanged"   HorizontalOptions="FillAndExpand"            
+        HeightRequest="40" Margin="0,0,0,20" >
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                        <x:String>8:00 da manhã</x:String>
+                            <x:String>Aprovados</x:String>
+                            <x:String>Recusados</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                    <Picker.SelectedItem>
+                        <x:String>8:00 da manhã</x:String>
+                    </Picker.SelectedItem>
+                </Picker>
+
+            
+        </Grid>
+
+        <Grid Margin="20,0,0,0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                
+            </Grid.ColumnDefinitions>
+            <Button  Grid.Column="0" Text="Cancelar" Margin="0,0,5,0" />
+            <Button  Grid.Column="1" Text="Confirmar" Margin="0,0,5,0" />
+        </Grid>
+
+
+    </VerticalStackLayout>
+</ContentPage>
