@@ -10,7 +10,7 @@ namespace LiquiCycle_FuncionarioPosto.Services
     public class ApiService
     {
         private static readonly HttpClient client = new HttpClient();
-        private const string BaseUrl = "https://projetomobileapi.azurewebsites.net/api/";
+        private const string BaseUrl = "http://10.0.2.2:5031/api/";
 
         public async Task<T> GetAsync<T>(string url)
         {
