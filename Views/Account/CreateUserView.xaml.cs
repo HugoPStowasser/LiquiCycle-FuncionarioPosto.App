@@ -4,14 +4,18 @@ using LiquiCycle_FuncionarioPosto.Requests;
 using LiquiCycle_FuncionarioPosto.Services;
 using Microsoft.Maui.Controls;
 using static LiquiCycle_FuncionarioPosto.Services.ViaCEPService;
+using static Microsoft.Maui.ApplicationModel.Permissions;
 
 namespace LiquiCycle_FuncionarioPosto.Views.Account;
 
 public partial class CreateUserView : ContentPage
 {
+    private List<PostoDto> postos;
     public CreateUserView()
     {
         InitializeComponent();
+
+        LoadPostosAsync();
 
         EntryCep.TextChanged += (sender, e) =>
         {
@@ -122,10 +126,19 @@ public partial class CreateUserView : ContentPage
                 },
                 Conta = new UsuarioContaRequest
                 {
-                    Login = RadioEmail.IsChecked ? EntryEmail.Text : EntryCPF.Text.Replace(".", "").Replace("-", "").Replace("/", ""),
+                    Login = RadioCPF.IsChecked ? EntryCPF.Text.Replace(".", "").Replace("-", "").Replace("/", "") : EntryEmail.Text,
                     Senha = EntrySenha.Text
                 }
             };
+            if (PostoPicker.SelectedItem != null)
+            {
+                var postoNome = PostoPicker.SelectedItem.ToString();
+                var posto = postos.FirstOrDefault(p => p.Nome == postoNome);
+                if (posto != null)
+                {
+                    usuarioRequest.Dados.PostoId = posto.Id;
+                }
+            }
             await CreateUserAsync(usuarioRequest);
             popup.Close();
         }
@@ -148,6 +161,29 @@ public partial class CreateUserView : ContentPage
         catch (Exception ex)
         {
             await Console.Out.WriteLineAsync(ex.Message);
+        }
+    }
+
+    private async Task<List<PostoDto>> GetPostosAsync()
+    {
+        try
+        {
+            var apiService = new ApiService();
+            return await apiService.GetAsync<List<PostoDto>>("posto");
+        }
+        catch (Exception ex)
+        {
+            await Console.Out.WriteLineAsync(ex.Message);
+            return null;
+        }
+    }
+
+    private async void LoadPostosAsync()
+    {
+        postos = await GetPostosAsync();
+        if (postos != null)
+        {
+            PostoPicker.ItemsSource = postos.Select(posto => posto.Nome).ToList();
         }
     }
 
