@@ -1,4 +1,5 @@
 using Microsoft.Maui.Controls;
+using System;
 
 namespace LiquiCycle_FuncionarioPosto.Views.App;
 
@@ -29,6 +30,10 @@ public partial class AgendamentosView : ContentPage
         Console.WriteLine($"Opção selecionada: {selectedOption}");
     }
 
+    private void NavigationCreateAgendamento(object sender, EventArgs e)
+    {
+        Navigation.PushModalAsync(new CreateAgendamentosView());
+    }
 
     public class getAgendamentos 
     {
