@@ -132,6 +132,7 @@
                     HeightRequest="45"
                     Keyboard="Text"
                     Placeholder="Ex: 21235-740"
+                    TextChanged="OnEntryCompletedCep"
                     TextColor="Black" />
             </Border>
             <Label
