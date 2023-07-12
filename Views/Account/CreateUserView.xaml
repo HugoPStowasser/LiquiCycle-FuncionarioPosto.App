@@ -102,6 +102,7 @@
                     HeightRequest="45"
                     Keyboard="Text"
                     Placeholder="Deve conter 6 dígitos"
+                    IsPassword="True"
                     TextColor="Black" />
             </Border>
             <Label
@@ -116,6 +117,7 @@
                     HeightRequest="45"
                     Keyboard="Text"
                     Placeholder="Repita a senha "
+                    IsPassword="True"
                     TextColor="Black" />
             </Border>
             <Label
@@ -212,6 +214,7 @@
             
 
             <Button
+                x:Name="createUser"
                 Margin="10,30"
                 Padding="20"
                 BackgroundColor="#FF007A"
