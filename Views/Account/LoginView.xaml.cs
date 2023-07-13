@@ -51,7 +51,7 @@ public partial class LoginView : ContentPage
 
             if (loginResponse != null)
             {
-                string jsonString = JsonSerializer.Serialize(loginResponse.Administrador);
+                string jsonString = JsonSerializer.Serialize(loginResponse.FuncionarioPosto);
                 Preferences.Default.Set("usuarioLogado", jsonString);
                 Application.Current.MainPage = new NavigationPage(new AppView());
             }

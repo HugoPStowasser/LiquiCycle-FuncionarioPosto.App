@@ -1,34 +1,24 @@
+using CommunityToolkit.Maui.Views;
 using LiquiCycle_FuncionarioPosto.Dtos;
+using LiquiCycle_FuncionarioPosto.Views.Account;
 using LiquiCycle_FuncionarioPosto.Views.App.Profile;
+using System.Text.Json;
 
 namespace LiquiCycle_FuncionarioPosto.Views.App;
 
 public partial class ProfileView : ContentPage
 {
-    private readonly FuncionarioPostoDto funcionario;
+    public FuncionarioPostoDto funcionario;
     public ProfileView()
 	{
 		InitializeComponent();
-        funcionario = new FuncionarioPostoDto()
-        {
-            Id = 1,
-            Usuario = new UsuarioDto
-            {
-                Id = 1,
-                Nome = "Usuario Adm",
-                CPFouCNPJ = "12345678910",
-                Email = "usuario1@email.com",
-                PerfilEnum = PerfilEnum.Cliente,
-                CEP = "12345678",
-                Rua = "Rua A",
-                Numero = 1,
-                UF = "UF",
-                Cidade = "Cidade",
-                StatusEnum = StatusEnum.Bloqueado,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now
-            }
-        };
+        LoadData();
+    }
+
+    private void LoadData()
+    {
+        string jsonString = Preferences.Get("usuarioLogado", string.Empty);
+        funcionario = JsonSerializer.Deserialize<FuncionarioPostoDto>(jsonString);
         lblNome.Text = funcionario.Usuario.Nome;
     }
 
@@ -46,6 +36,12 @@ public partial class ProfileView : ContentPage
     }
     private void SairConta(object sender, EventArgs e)
     {
+        var popup = new SpinnerPopup();
+        this.ShowPopup(popup);
 
+        Preferences.Remove("usuarioLogado");
+        Application.Current.MainPage = new NavigationPage(new LoginView());
+
+        popup.Close();
     }
 }

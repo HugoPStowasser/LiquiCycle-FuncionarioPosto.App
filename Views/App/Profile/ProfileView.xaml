@@ -70,6 +70,7 @@
                     <Button
                         Margin="0,30,0,0"
                         BackgroundColor="Transparent"
+                        Clicked="SairConta"
                         FontSize="22"
                         HorizontalOptions="Center"
                         Text="Sair da conta"
