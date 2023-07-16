@@ -50,12 +50,12 @@
                 <Entry Placeholder="Digite algo"  />
            
         </StackLayout>
-        
 
-        <ListView 
+
+        <ListView  ItemTapped="ListView_ItemTapped"
             x:Name="listAgendamentos"
             ItemsSource="{Binding getAgendamentos}" BackgroundColor="#414955"
-            Margin="20,0,20,0">
+            Margin="20,0,20,0" >
 
             <ListView.ItemTemplate >
                 <DataTemplate>
@@ -65,7 +65,9 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
+                         
                             
+                            <Label  Grid.Column="0" Text="{Binding id}" TextColor="White" IsVisible="false"/>
                             <Label  Grid.Column="0" Text="{Binding nome}" TextColor="White"/>
 
                             <Grid Grid.Column="1">
@@ -76,8 +78,21 @@
                                 <Label  Grid.Column="0" Text="{Binding liquido}" TextColor="White"/>
                                 <Label  Grid.Column="1" Text="{Binding litros}" TextColor="White"/>
                             </Grid>
-                        </Grid>
                         
+
+                        <Label Text="Requisitado no dia   /  /     às   :   " Margin="20,0,0,15"></Label>
+
+                        <Grid Margin="20,0,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                                <Button x:Name="btnAprovarAgendameto" AutomationId="{Binding idAgendamento}" Grid.Column="0" Text="Aprovar" Clicked="Botao_Clicado" Margin="0,0,5,0" />
+                                <Button x:Name="btnReprovarAgendameto"  Grid.Column="1" Text="Recusar" Margin="0,0,5,0" />
+                        </Grid>
+                        </Grid>
                     </ViewCell>
                     
                 </DataTemplate>
@@ -87,18 +102,6 @@
 
         </ListView>
 
-        <Label Text="Requisitado no dia   /  /     às   :   " Margin="20,0,0,15"></Label>
-
-        <Grid Margin="20,0,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Button  Grid.Column="0" Text="Aprovar" Margin="0,0,5,0" />
-            <Button  Grid.Column="1" Text="Recusar" Margin="0,0,5,0" />
-        </Grid>
         
         <Grid>
             <Grid.ColumnDefinitions>
