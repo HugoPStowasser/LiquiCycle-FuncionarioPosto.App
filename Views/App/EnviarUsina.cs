@@ -1,3 +1,5 @@
+using LiquiCycle_FuncionarioPosto.Dtos;
+using LiquiCycle_FuncionarioPosto.Services;
 using Microsoft.Maui.Controls;
 
 namespace LiquiCycle_FuncionarioPosto.Views.App;
@@ -15,11 +17,24 @@ public partial class EnviarUsina : ContentPage
         Navigation.PopModalAsync();
     }
 
+    private async Task<List<LiquidoDto>> GetLiquidosAsync()
+    {
+        try
+        {
+            var apiService = new ApiService();
+            return await apiService.GetAsync<List<LiquidoDto>>("liquido");
+        }
+        catch (Exception ex)
+        {
+            await Console.Out.WriteLineAsync(ex.Message);
+            return null;
+        }
+    }
+
+
     private void selecionaliquido(object sender, EventArgs e) 
     {
-    
-            Navigation.PushModalAsync(new AddLiquido());
-        
+        Navigation.PushModalAsync(new AddLiquido());
     }
 
     private void PickerSelectedIndexChanged(object sender, EventArgs e)
