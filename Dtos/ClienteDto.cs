@@ -12,4 +12,21 @@ namespace LiquiCycle_FuncionarioPosto.Dtos
         public double Saldo { get; set; }
         public UsuarioDto Usuario { get; set; }
     }
+    public class TransacaoClienteDto
+    {
+        public int Id { get; set; }
+        public PostoDto Posto { get; set; }
+        public StatusEnum Status { get; set; }
+        public DateTime dataAgendada { get; set; }
+        public double Valor { get; set; }
+        public String CodigoTransacao { get; set; }
+        public List<TransacaoItemDto> TransacaoItem { get; set; }
+    }
+    public class TransacaoItemDto
+    {
+        public int QtdAgendada { get; set; }
+        public double Valor { get; set; }
+        public LiquidoDto Liquido { get; set; }
+        public DateTime CreatedAt { get; set; }
+    }
 }
