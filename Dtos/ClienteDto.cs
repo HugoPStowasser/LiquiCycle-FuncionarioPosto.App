@@ -22,11 +22,4 @@ namespace LiquiCycle_FuncionarioPosto.Dtos
         public String CodigoTransacao { get; set; }
         public List<TransacaoItemDto> TransacaoItem { get; set; }
     }
-    public class TransacaoItemDto
-    {
-        public int QtdAgendada { get; set; }
-        public double Valor { get; set; }
-        public LiquidoDto Liquido { get; set; }
-        public DateTime CreatedAt { get; set; }
-    }
 }
