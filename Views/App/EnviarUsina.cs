@@ -31,6 +31,19 @@ public partial class EnviarUsina : ContentPage
         }
     }
 
+    private async Task<List<UsinaDto>> GetUsinasAsync()
+    {
+        try
+        {
+            var apiService = new ApiService();
+            return await apiService.GetAsync<List<UsinaDto>>("usina");
+        }
+        catch (Exception ex)
+        {
+            await Console.Out.WriteLineAsync(ex.Message);
+            return null;
+        }
+    }
 
     private void selecionaliquido(object sender, EventArgs e) 
     {
