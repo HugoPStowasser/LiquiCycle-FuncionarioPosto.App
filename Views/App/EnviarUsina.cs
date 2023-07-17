@@ -6,33 +6,44 @@ namespace LiquiCycle_FuncionarioPosto.Views.App;
 
 public partial class EnviarUsina : ContentPage
 {
-    List<UsinaDto> usinas;
+    public List<UsinaDto> usinas;
+    public List<LiquidoDto> liquidos { get; set; }
+    private string previousSelectedUsina = "Selecione a Usina";
+
     public EnviarUsina()
     {
         InitializeComponent();
-        GetUsinasAsync();
+        pickerUsina.SelectedIndexChanged -= UsinaPickerSelectedIndexChanged;
+        pickerUsina.SelectedIndexChanged += UsinaPickerSelectedIndexChanged;
     }
 
-    private void Return(object sender, EventArgs e) 
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        _ = GetUsinasAsync();
+    }
+
+    private void Return(object sender, EventArgs e)
     {
         Navigation.PopModalAsync();
     }
 
-    private async Task<List<LiquidoDto>> GetLiquidosAsync()
+    private async void selecionaliquido(object sender, EventArgs e)
     {
         try
         {
             var apiService = new ApiService();
-            return await apiService.GetAsync<List<LiquidoDto>>("liquido");
+            liquidos = await apiService.GetAsync<List<LiquidoDto>>("liquido");
+
+            await Navigation.PushModalAsync(new AddLiquido(liquidos));
         }
         catch (Exception ex)
         {
             await Console.Out.WriteLineAsync(ex.Message);
-            return null;
         }
     }
 
-    private async void GetUsinasAsync()
+    private async Task GetUsinasAsync()
     {
         try
         {
@@ -45,35 +56,42 @@ public partial class EnviarUsina : ContentPage
                 var usinaNames = usinas.Select(u => u.Nome).ToList();
                 usinaNames.Insert(0, "Selecione a Usina");
                 pickerUsina.ItemsSource = usinaNames;
-                pickerUsina.SelectedItem = "Selecione a Usina";
+                pickerUsina.SelectedIndex = 0;
+
+                // Adicionar o manipulador de eventos do Picker após definir o ItemsSource
+                pickerUsina.SelectedIndexChanged += UsinaPickerSelectedIndexChanged;
             }
         }
         catch (Exception ex)
         {
-            await Console.Out.WriteLineAsync(ex.Message);
+            Console.WriteLine(ex.Message);
         }
     }
+
     private void UsinaPickerSelectedIndexChanged(object sender, EventArgs e)
     {
         var picker = (Picker)sender;
-        var selectedUsina = (string)picker.SelectedItem;
 
-        if (selectedUsina != "Selecione a Usina")
+        if (picker.SelectedItem != null)
         {
-            // Filtrar a lista de usinas pelo nome selecionado
-            var filteredUsinas = usinas.Where(u => u.Nome.StartsWith(selectedUsina)).ToList();
+            var selectedUsina = (string)picker.SelectedItem;
 
-            // Atualizar as opções do Picker de Usina
-            var usinaNames = filteredUsinas.Select(u => u.Nome).ToList();
-            usinaNames.Insert(0, "Selecione a Usina");
-            picker.ItemsSource = usinaNames;
-            picker.SelectedItem = usinaNames.FirstOrDefault();
+            if (selectedUsina != previousSelectedUsina && selectedUsina != "Selecione a Usina")
+            {
+                previousSelectedUsina = selectedUsina;
+
+                // Filtrar a lista de usinas pelo nome selecionado
+                var filteredUsinas = usinas.Where(u => u.Nome == selectedUsina).ToList();
+
+                if (filteredUsinas.Count > 0)
+                {
+                    var selectedUsinaDto = filteredUsinas.First();
+
+                    // Atualizar o texto da opção selecionada
+                    picker.SelectedItem = selectedUsinaDto.Nome;
+                }
+            }
         }
-    }
-
-    private void selecionaliquido(object sender, EventArgs e) 
-    {
-        Navigation.PushModalAsync(new AddLiquido());
     }
 
     private void PickerSelectedIndexChanged(object sender, EventArgs e)
@@ -81,9 +99,6 @@ public partial class EnviarUsina : ContentPage
         var picker = (Picker)sender;
         var selectedOption = (string)picker.SelectedItem;
 
-
         Console.WriteLine($"Opção selecionada: {selectedOption}");
     }
-
-
 }

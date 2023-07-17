@@ -13,18 +13,7 @@
             <Label Text="Adicionar liquido" FontSize="24" HorizontalOptions="Center"/>
         </Grid>
 
-        <Grid RowDefinitions="*,*" Margin="20,20,0,0">
-            <RadioButton
-                    x:Name="oleocozinha_txt"
-                    Grid.Row="0"
-                    Content="oleo de cozinha"
-                    IsChecked="True"
-                    />
-            <RadioButton
-                    x:Name="oleoengrenagem_txt"
-                    Grid.Row="1"
-                    Content="oleo de engrenagem"
-                    HorizontalOptions="Start" />
+        <Grid x:Name="gridLiquidos" RowDefinitions="*,*" Margin="20,20,0,0">
         </Grid>
 
         <Grid>
