@@ -81,11 +81,11 @@
 
             <Grid ColumnDefinitions="*,*">
                 <RadioButton
-                    x:Name="RadioCPF"
+                    x:Name="RadioEmail"
                     Content=" Email"
                     IsChecked="True" />
                 <RadioButton
-                    x:Name="RadioEmail"
+                    x:Name="RadioCPF"
                     Grid.Column="1"
                     Content=" CPF"
                     HorizontalOptions="End" />

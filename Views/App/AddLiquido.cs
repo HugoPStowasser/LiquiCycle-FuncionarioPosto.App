@@ -5,6 +5,8 @@ namespace LiquiCycle_FuncionarioPosto.Views.App;
 
 public partial class AddLiquido : ContentPage
 {
+    public LiquidoDto SelectedLiquido { get; private set; }
+
     public AddLiquido(List<LiquidoDto> liquidos)
     {
         InitializeComponent();
@@ -16,6 +18,12 @@ public partial class AddLiquido : ContentPage
                 Content = liquido.Nome,
                 IsChecked = false,
                 HorizontalOptions = LayoutOptions.Start
+            };
+
+            radioButton.CheckedChanged += (s, e) =>
+            {
+                if (radioButton.IsChecked)
+                    SelectedLiquido = liquido;
             };
 
             var rowDefinition = new RowDefinition { Height = GridLength.Star };

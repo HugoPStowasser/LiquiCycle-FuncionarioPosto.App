@@ -35,7 +35,20 @@ public partial class EnviarUsina : ContentPage
             var apiService = new ApiService();
             liquidos = await apiService.GetAsync<List<LiquidoDto>>("liquido");
 
-            await Navigation.PushModalAsync(new AddLiquido(liquidos));
+            var addLiquidoPage = new AddLiquido(liquidos);
+            addLiquidoPage.Disappearing += (s, args) =>
+            {
+                if (addLiquidoPage.SelectedLiquido != null)
+                {
+                    var liquidoSelecionado = addLiquidoPage.SelectedLiquido;
+                    // Manipule o liquido selecionado aqui
+
+                    // Por exemplo, você pode definir o texto em um Label
+                    //lblLiquidoSelecionado.Text = liquidoSelecionado.Nome;
+                }
+            };
+
+            await Navigation.PushModalAsync(addLiquidoPage);
         }
         catch (Exception ex)
         {

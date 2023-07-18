@@ -86,8 +86,6 @@ public partial class CreateUserView : ContentPage
                 entry.CursorPosition = entry.Text.Length;
             }
         };
-
-        createUser.Opacity = 0.2;
     }
 
     private async void CreateUser(object sender, EventArgs e)
